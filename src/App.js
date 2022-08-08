@@ -1,7 +1,9 @@
 import { useState,useEffect } from "react";
 import "./App.css";
 import ErrorMessage from "./components/ErrorMessage";
+import Loader from "./components/Loader";
 import SeasionDisplay from "./components/SeasionDisplay";
+
 
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
  
   return (
     <div className="App">
-    {!lat && !err ? "Loading...": ""}
+    {!lat && !err ? <Loader message="Please accept location request"/> : ""}
     {!lat && err ? <ErrorMessage err={err}/>: ""}
     {lat && !err ? <SeasionDisplay  lat={lat}/>: ""}
 
